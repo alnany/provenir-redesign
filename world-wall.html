@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>World Wall — Provenir</title>
+<meta name="description" content="Discover products and start partnerships — the Provenir World Wall">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Spline+Sans+Mono:wght@400;500&family=Noto+Serif+SC:wght@600;900&display=swap" rel="stylesheet">
+<style>/* ============ Provenir Redesign — Black & Tan Gallery ============ */
+:root{
+  --ground:#131110;
+  --panel:#1B1815;
+  --panel-2:#211D19;
+  --ink:#EDE6DA;
+  --muted:#B5AA9B;
+  --faint:#8B8072;
+  --seal:#E2502F;
+  --seal-deep:#B83A20;
+  --tan:#C8A87E;
+  --line:rgba(237,230,218,.14);
+  --line-soft:rgba(237,230,218,.07);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --r-card:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Bricolage Grotesque",system-ui,sans-serif;
+  font-optical-sizing:auto;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--seal);color:#fff}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.zh{font-family:"Noto Serif SC",serif}
+.mono{font-family:"Spline Sans Mono",monospace}
+.wrap{max-width:1320px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+/* ---------- seal mark ---------- */
+.seal{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;flex:none;
+  background:var(--seal);color:#FFF4EC;
+  font-family:"Noto Serif SC",serif;font-weight:900;font-size:19px;
+  border-radius:4px;line-height:1;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.22);
+}
+
+/* ---------- nav ---------- */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:40;
+  height:68px;display:flex;align-items:center;
+  background:rgba(19,17,16,.78);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav .wrap{display:flex;align-items:center;gap:28px;width:100%}
+.nav-brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:19px;letter-spacing:-.01em}
+.nav-brand em{font-style:normal;color:var(--seal)}
+.nav-links{display:flex;align-items:center;gap:26px;margin-left:auto}
+.nav-links a{font-size:14px;color:var(--muted);transition:color .35s var(--ease)}
+.nav-links a:hover{color:var(--ink)}
+.nav-lang{font-size:12px;letter-spacing:.08em;color:var(--faint)}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;
+  border-radius:999px;padding:13px 24px;
+  font-weight:600;font-size:14px;letter-spacing:.01em;line-height:1;
+  white-space:nowrap;cursor:pointer;border:0;
+  transition:transform .5s var(--ease),background .5s var(--ease),color .5s var(--ease);
+}
+.btn:active{transform:scale(.98)}
+.btn-seal{background:var(--seal);color:#FFF4EC}
+.btn-seal:hover{background:var(--seal-deep)}
+.btn-ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1px rgba(237,230,218,.4)}
+.btn .tip{
+  width:26px;height:26px;border-radius:999px;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.18);font-size:13px;
+  transition:transform .5s var(--ease);
+}
+.btn:hover .tip{transform:translate(2px,-1px)}
+.btn-sm{padding:10px 18px;font-size:13px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-img{position:absolute;inset:0;z-index:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;opacity:.52}
+.hero-img::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(19,17,16,.55) 0%,rgba(19,17,16,.18) 42%,rgba(19,17,16,.94) 88%);
+}
+.hero-inner{position:relative;z-index:1;width:100%;padding-top:120px;padding-bottom:clamp(48px,7vh,84px)}
+.hero-eyebrow{
+  font-family:"Spline Sans Mono",monospace;font-size:11.5px;letter-spacing:.22em;
+  color:var(--tan);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:14px;
+}
+.hero-eyebrow .seal{width:28px;height:28px;font-size:16px}
+.hero h1{
+  font-size:clamp(2.9rem,7.2vw,5.9rem);
+  font-weight:750;letter-spacing:-.025em;line-height:1.02;
+  max-width:13ch;text-wrap:balance;
+}
+.hero h1 .zh{
+  display:block;font-size:.34em;font-weight:600;color:var(--tan);
+  letter-spacing:.3em;margin-top:.55em;line-height:1.4;
+}
+.hero-sub{
+  margin-top:26px;max-width:58ch;color:var(--muted);font-size:16.5px;line-height:1.72;
+}
+.hero-sub strong{color:var(--ink);font-weight:600}
+.hero-ctas{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+
+/* vertical rail */
+.rail{
+  position:absolute;right:clamp(18px,3.4vw,52px);top:50%;transform:translateY(-50%);z-index:1;
+  writing-mode:vertical-rl;display:flex;gap:18px;align-items:center;
+  font-family:"Noto Serif SC",serif;font-size:13px;letter-spacing:.5em;color:rgba(237,230,218,.4);
+}
+.rail::before{content:"";width:1px;height:74px;background:var(--line);writing-mode:horizontal-tb}
+@media(max-width:900px){.rail{display:none}}
+
+/* ---------- marquee ---------- */
+.marquee{border-block:1px solid var(--line-soft);overflow:hidden;padding:15px 0;background:var(--panel)}
+.marquee-track{display:flex;gap:64px;width:max-content;animation:mq 38s linear infinite}
+.marquee span{
+  font-family:"Spline Sans Mono",monospace;font-size:12px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--faint);white-space:nowrap;display:flex;gap:64px;
+}
+.marquee b{color:var(--tan);font-weight:500}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-soft);border-radius:var(--r-card);overflow:hidden;background:var(--panel)}
+.stat{padding:clamp(26px,3.4vw,44px);position:relative}
+.stat+.stat{border-left:1px solid var(--line-soft)}
+.stat .num{
+  font-family:"Spline Sans Mono",monospace;font-size:clamp(2.2rem,4.6vw,3.6rem);
+  font-weight:500;color:var(--tan);line-height:1;letter-spacing:-.02em;
+}
+.stat .num i{font-style:normal;font-size:.42em;color:var(--faint);margin-left:8px;letter-spacing:.06em}
+.stat p{margin-top:12px;color:var(--muted);font-size:14px}
+@media(max-width:760px){.stats{grid-template-columns:1fr}.stat+.stat{border-left:0;border-top:1px solid var(--line-soft)}}
+
+/* ---------- sections ---------- */
+.section{padding-block:clamp(72px,11vw,150px)}
+.sec-head{margin-bottom:clamp(34px,5vw,60px);max-width:720px}
+.sec-head h2{font-size:clamp(1.9rem,4vw,3.1rem);font-weight:700;letter-spacing:-.02em;line-height:1.12;text-wrap:balance}
+.sec-head h2 em{font-style:italic;color:var(--tan);padding-bottom:.1em}
+.sec-head p{margin-top:18px;color:var(--muted);max-width:62ch}
+.kicker{
+  font-family:"Spline Sans Mono",monospace;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--seal);margin-bottom:16px;display:block;
+}
+
+/* ---------- showroom cards ---------- */
+.show-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:980px){.show-grid{grid-template-columns:1fr}}
+.show-card{
+  background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-card);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:transform .6s var(--ease),border-color .6s var(--ease);
+}
+.show-card:hover{transform:translateY(-5px);border-color:rgba(237,230,218,.26)}
+.show-fig{position:relative;aspect-ratio:4/3;overflow:hidden}
+.show-fig img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.show-card:hover .show-fig img{transform:scale(1.045)}
+.badge{
+  position:absolute;top:14px;left:14px;
+  font-family:"Spline Sans Mono",monospace;font-size:10.5px;letter-spacing:.14em;
+  padding:6px 11px;border-radius:999px;line-height:1;
+  background:rgba(19,17,16,.72);backdrop-filter:blur(6px);color:var(--ink);
+  border:1px solid var(--line);
+}
+.badge.verified{color:#FFD9CD;border-color:rgba(226,80,47,.6);background:rgba(184,58,32,.45)}
+.show-body{padding:22px 22px 30px;display:flex;flex-direction:column;gap:10px;flex:1}
+.show-loc{font-family:"Spline Sans Mono",monospace;font-size:11px;letter-spacing:.16em;color:var(--faint);text-transform:uppercase}
+.show-body h3{font-size:19px;font-weight:650;letter-spacing:-.01em;line-height:1.25}
+.show-body .sub{color:var(--muted);font-size:13.5px}
+.show-meta{
+  margin-top:auto;padding-top:16px;border-top:1px solid var(--line-soft);
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-family:"Spline Sans Mono",monospace;font-size:12px;color:var(--tan);
+}
+.show-meta b{color:var(--muted);font-weight:400;font-size:11px;letter-spacing:.1em}
+
+/* ---------- mechanism ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line-soft);border-radius:var(--r-card);overflow:hidden}
+@media(max-width:980px){.steps{grid-template-columns:1fr}}
+.step{padding:clamp(28px,3.6vw,46px);background:var(--panel);position:relative}
+.step+.step{border-left:1px solid var(--line-soft)}
+@media(max-width:980px){.step+.step{border-left:0;border-top:1px solid var(--line-soft)}}
+.step-no{
+  font-family:"Spline Sans Mono",monospace;font-size:12px;color:var(--seal);letter-spacing:.18em;
+  display:flex;align-items:center;gap:10px;margin-bottom:18px;
+}
+.step-no::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+.step h3{font-size:clamp(1.5rem,2.4vw,2rem);font-weight:700;letter-spacing:-.015em;font-style:italic}
+.step .role{
+  font-family:"Spline Sans Mono",monospace;font-size:10.5px;letter-spacing:.2em;color:var(--tan);
+  text-transform:uppercase;margin:10px 0 18px;
+}
+.step p{color:var(--muted);font-size:14.5px;line-height:1.7}
+
+/* ---------- CTA band ---------- */
+.cta-band{
+  border:1px solid var(--line-soft);border-radius:var(--r-card);
+  background:linear-gradient(120deg,var(--panel) 0%,var(--panel-2) 100%);
+  padding:clamp(40px,6vw,80px);text-align:left;
+  display:flex;flex-wrap:wrap;align-items:center;gap:32px;justify-content:space-between;
+}
+.cta-band h2{font-size:clamp(1.7rem,3.4vw,2.7rem);font-weight:700;letter-spacing:-.02em;line-height:1.15;max-width:18ch;text-wrap:balance}
+.cta-band .zh{display:block;font-size:.5em;color:var(--tan);font-weight:600;margin-top:.6em;letter-spacing:.2em}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line-soft);padding:clamp(48px,7vw,80px) 0 36px;background:#0F0D0C}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand{display:flex;align-items:flex-start;gap:14px}
+.foot-brand p{color:var(--muted);font-size:14px;margin-top:6px}
+.foot-col h4{
+  font-family:"Spline Sans Mono",monospace;font-size:11px;letter-spacing:.2em;color:var(--faint);
+  text-transform:uppercase;margin-bottom:18px;font-weight:500;
+}
+.foot-col a,.foot-col span{display:block;color:var(--muted);font-size:14px;margin-bottom:12px;transition:color .35s var(--ease)}
+.foot-col a:hover{color:var(--ink)}
+.foot-base{
+  margin-top:56px;padding-top:24px;border-top:1px solid var(--line-soft);
+  display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;
+  color:var(--faint);font-size:12.5px;
+}
+.foot-base a{color:var(--faint)}
+.foot-base a:hover{color:var(--muted)}
+
+/* ---------- world wall ---------- */
+.wall-head{padding:130px 0 36px;display:flex;flex-wrap:wrap;align-items:flex-end;gap:28px;justify-content:space-between}
+.wall-head h1{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:750;letter-spacing:-.025em;line-height:1.05}
+.wall-head .zh-sub{color:var(--tan);font-size:15px;letter-spacing:.3em;margin-top:10px}
+.tabs{display:flex;gap:6px;background:var(--panel);border:1px solid var(--line-soft);border-radius:999px;padding:5px}
+.tab{
+  border:0;background:transparent;color:var(--muted);cursor:pointer;
+  font-family:inherit;font-size:13.5px;font-weight:600;padding:9px 20px;border-radius:999px;
+  transition:background .4s var(--ease),color .4s var(--ease);
+}
+.tab.active{background:var(--seal);color:#FFF4EC}
+.wall{columns:4 280px;column-gap:18px;padding-bottom:clamp(72px,10vw,130px)}
+.post{
+  break-inside:avoid;margin-bottom:18px;display:block;
+  background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-card);
+  overflow:hidden;transition:transform .55s var(--ease),border-color .55s var(--ease);
+}
+.post:hover{transform:translateY(-4px);border-color:rgba(237,230,218,.28)}
+.post-fig{overflow:hidden;background:var(--panel-2)}
+.post-fig img{width:100%;height:auto;transition:transform 1s var(--ease)}
+.post:hover .post-fig img{transform:scale(1.04)}
+.post-body{padding:16px 16px 18px}
+.post-body h3{font-size:14.5px;font-weight:600;line-height:1.4;letter-spacing:0}
+.post-body h3 .zh{display:block;color:var(--tan);font-size:12.5px;font-weight:600;margin-top:5px}
+.post-maker{
+  margin-top:13px;padding-top:13px;border-top:1px solid var(--line-soft);
+  display:flex;align-items:center;gap:10px;
+}
+.avatar{
+  width:26px;height:26px;border-radius:6px;flex:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  background:var(--panel-2);border:1px solid var(--line);
+  font-family:"Noto Serif SC",serif;font-weight:900;font-size:12.5px;color:var(--tan);
+}
+.post-maker span{font-size:12.5px;color:var(--muted)}
+.post-maker .mfr{
+  margin-left:auto;font-family:"Spline Sans Mono",monospace;font-size:10px;letter-spacing:.12em;
+  color:var(--muted);text-transform:uppercase;
+}
+
+/* ---------- product page ---------- */
+.prod{padding:120px 0 clamp(72px,9vw,120px)}
+.backlink{
+  display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:13.5px;
+  font-family:"Spline Sans Mono",monospace;letter-spacing:.08em;margin-bottom:30px;
+  transition:color .35s var(--ease);
+}
+.backlink:hover{color:var(--ink)}
+.prod-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:start}
+@media(max-width:980px){.prod-grid{grid-template-columns:1fr}}
+.gallery-main{
+  border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line-soft);
+  background:var(--panel);position:relative;aspect-ratio:4/3;
+}
+.gallery-main img{width:100%;height:100%;object-fit:cover;border-radius:inherit;opacity:1;transition:opacity .45s var(--ease)}
+.gallery-main img.fading{opacity:0}
+.g-count{
+  position:absolute;right:14px;bottom:14px;
+  font-family:"Spline Sans Mono",monospace;font-size:11.5px;letter-spacing:.1em;
+  background:rgba(19,17,16,.72);backdrop-filter:blur(6px);
+  border:1px solid var(--line);border-radius:999px;padding:6px 12px;color:var(--ink);
+}
+.g-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:40px;height:40px;border-radius:999px;border:1px solid var(--line);
+  background:rgba(19,17,16,.66);backdrop-filter:blur(6px);color:var(--ink);
+  cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;
+  transition:background .4s var(--ease);
+}
+.g-arrow:hover{background:rgba(226,80,47,.85)}
+.g-prev{left:14px}.g-next{right:14px}
+.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:12px}
+.thumb{
+  border-radius:9px;overflow:hidden;border:1px solid var(--line-soft);cursor:pointer;
+  aspect-ratio:1;padding:0;background:var(--panel);
+  transition:border-color .4s var(--ease),opacity .4s var(--ease);opacity:.55;
+}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb.active{border-color:var(--seal);opacity:1}
+.thumb:hover{opacity:1}
+
+.prod-maker{
+  display:flex;align-items:center;gap:14px;
+  padding:18px;background:var(--panel);border:1px solid var(--line-soft);border-radius:var(--r-card);
+}
+.prod-maker .avatar{width:44px;height:44px;font-size:19px;border-radius:10px}
+.prod-maker .who b{display:block;font-size:15.5px;font-weight:650}
+.prod-maker .who span{font-family:"Spline Sans Mono",monospace;font-size:10px;letter-spacing:.18em;color:var(--seal);text-transform:uppercase}
+.prod-maker time{margin-left:auto;font-family:"Spline Sans Mono",monospace;font-size:11.5px;color:var(--faint)}
+.prod h1{font-size:clamp(1.6rem,2.6vw,2.3rem);font-weight:720;letter-spacing:-.02em;line-height:1.2;margin-top:28px;text-wrap:balance}
+.prod h1 .zh{display:block;font-size:.62em;color:var(--tan);font-weight:600;margin-top:.5em;line-height:1.5}
+.prod-desc{margin-top:22px;color:var(--muted);font-size:15px;max-width:65ch}
+.prod-desc.zh{margin-top:14px;font-size:14.5px;line-height:1.9}
+.tagrow{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
+.tag{
+  font-family:"Spline Sans Mono",monospace;font-size:12px;color:var(--tan);
+  border:1px solid var(--line);border-radius:999px;padding:7px 14px;
+}
+.react-row{
+  margin-top:26px;padding:16px 0;border-block:1px solid var(--line-soft);
+  display:flex;gap:26px;font-family:"Spline Sans Mono",monospace;font-size:13px;color:var(--muted);
+}
+.react-row button{
+  background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;
+  display:inline-flex;gap:8px;align-items:center;transition:color .35s var(--ease);
+}
+.react-row button:hover{color:var(--seal)}
+.comments{margin-top:34px}
+.comments h2{font-size:17px;font-weight:650;display:flex;gap:10px;align-items:baseline}
+.comments h2 span{font-family:"Spline Sans Mono",monospace;font-size:12px;color:var(--faint)}
+.comment-gate{
+  margin-top:16px;padding:26px;border:1px solid var(--line);border-radius:var(--r-card);
+  display:flex;flex-wrap:wrap;align-items:center;gap:18px;justify-content:space-between;
+  color:var(--muted);font-size:14px;background:var(--panel);
+}
+.comment-empty{margin-top:14px;color:var(--faint);font-size:13.5px;font-style:italic}
+
+/* ---------- reveal ---------- */
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.js .reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
+
+/* a11y */
+:focus-visible{outline:2px solid var(--seal);outline-offset:3px;border-radius:4px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--seal);color:#fff;padding:10px 16px;z-index:100}
+.skip:focus{left:12px;top:12px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<nav class="nav">
+  <div class="wrap">
+    <a class="nav-brand" href="index.html"><span class="seal" aria-hidden="true">源</span> Provenir</a>
+    <div class="nav-links">
+      <a href="world-wall.html">World Wall</a>
+      <span class="nav-lang mono" aria-label="Language">EN / 中文</span>
+      <a href="https://www.provenir.design/">Log in</a>
+      <a class="btn btn-seal btn-sm" href="https://www.provenir.design/">Sign up</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+<div class="wrap">
+  <div class="wall-head">
+    <div class="reveal">
+      <h1>World Wall</h1>
+      <p class="zh zh-sub">世界墙 · 发现产品，开启合作</p>
+    </div>
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+      <form action="https://www.provenir.design/search" method="get" role="search">
+        <input type="search" name="q" placeholder="Search products, makers…" aria-label="Search"
+          style="background:var(--panel);border:1px solid var(--line-soft);border-radius:999px;padding:11px 20px;color:var(--ink);font:inherit;font-size:13.5px;width:230px">
+      </form>
+      <div class="tabs" role="tablist" aria-label="Sort posts">
+        <button class="tab active" data-sort="latest" role="tab" aria-selected="true">Latest</button>
+        <button class="tab" data-sort="popular" role="tab" aria-selected="false">Popular</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wall" id="wall">
+    <a class="post reveal" href="product.html" data-pop="14">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780631460418-ebd52fdb1aa9a260.png?x-oss-process=image/resize,w_800" alt="A luxurious sofa that blends the past and present" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>A luxurious sofa that blends the past and present<span class="zh">屏前雅卧 · 糅合古今的柔奢沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">摩</span><span class="zh">摩登翡丽</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpyyrfoe002f11k33qg9hn7g" data-pop="1">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780545402410-0541901cd51f0dd7.png?x-oss-process=image/resize,w_800" alt="Italian Tufted Genuine Leather Bed" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Italian Tufted Genuine Leather Bed<span class="zh">意式方格拉扣真皮软包大床</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">顾</span><span class="zh">顾斯优品</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpyx3ogf002d11k3txfihhyg" data-pop="8">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780542613496-4ac6fb65cdc7c5b7.png?x-oss-process=image/resize,w_800" alt="Italian-style Block Padded Genuine Leather Bed" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Italian-style Block Padded Genuine Leather Bed<span class="zh">意式方块软包真皮双人床</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">顾</span><span class="zh">顾斯优品</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpyx1c8q001so2u0yr50l96s" data-pop="15">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780542506801-90cb9ae6ec95fe3b.png?x-oss-process=image/resize,w_800" alt="Minimalist Slim Leg Stone Dining Table Set" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Minimalist Slim Leg Stone Dining Table Set<span class="zh">极简细腿岩板餐桌套装</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">顾</span><span class="zh">顾斯优品</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqpm15t001qo2u0rs8zmlqy" data-pop="2">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780046301325-5d3e1ce3c21f322f.png?x-oss-process=image/resize,w_800" alt="Hidden Frame・20 Hinge Series Cabinet Glass Door" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Hidden Frame・20 Hinge Series Cabinet Glass Door<span class="zh">隐框・20 铰链系列 隆柜玻璃门</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">绮</span><span class="zh">绮派克</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqozxg3002911k3kzu1sfjv" data-pop="9">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780045170510-8ac53606b123e843.png?x-oss-process=image/resize,w_800" alt="Light & Order・Italian Built-In Bookcase" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Light & Order・Italian Built-In Bookcase<span class="zh">光影秩序・意式整墙书柜</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">绮</span><span class="zh">绮派克</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqojhpk002311k34lcsj76e" data-pop="16">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780044483511-774512033200e9e1.jpg?x-oss-process=image/resize,w_800" alt="Matte Black Quilted Grid Leather Three-Seater Sofa" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Matte Black Quilted Grid Leather Three-Seater Sofa<span class="zh">哑光黑方格绗缝直排真皮沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">艾</span><span class="zh">艾新居家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqoijbx001oo2u0b4ik72d8" data-pop="3">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780044432810-0cf65e04e2031312.jpg?x-oss-process=image/resize,w_800" alt="Mustard-Yellow Tufted Suede Three-Seater Sofa" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Mustard-Yellow Tufted Suede Three-Seater Sofa<span class="zh">芥末黄拉点磨砂绒面直排沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">艾</span><span class="zh">艾新居家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqohgdb001mo2u0uz9gfqn4" data-pop="10">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780044387507-e651dec7daa26103.jpg?x-oss-process=image/resize,w_800" alt="Matte Black Modular Leather Three-Seater Sofa" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Matte Black Modular Leather Three-Seater Sofa<span class="zh">哑光黑模块化真皮直排沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">艾</span><span class="zh">艾新居家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqogij4001ko2u0mmn6dcz7" data-pop="17">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780044342166-64ee80d8849b24bc.jpg?x-oss-process=image/resize,w_800" alt="Cream White Teddy Fleece Sectional Sofa with Marble Detail" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Cream White Teddy Fleece Sectional Sofa with Marble Detail<span class="zh">奶白色泰迪绒大理石侧边组合沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">艾</span><span class="zh">艾新居家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqofkw7001io2u0506uhm10" data-pop="4">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780044298940-a778f59238b0eebb.jpg?x-oss-process=image/resize,w_800" alt="Hazy Blue Suede Cloud Sofa" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Hazy Blue Suede Cloud Sofa<span class="zh">雾霾蓝磨砂面料云朵沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">艾</span><span class="zh">艾新居家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqoekh2002111k3nlx1omav" data-pop="11">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780044241770-5ee357f02cd4ed36.jpg?x-oss-process=image/resize,w_800" alt="Lime Green Teddy Fleece Sofa with Rounded Arms" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Lime Green Teddy Fleece Sofa with Rounded Arms<span class="zh">青柠色泰迪绒圆润扶手沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">艾</span><span class="zh">艾新居家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqoddd2001z11k37izfdk58" data-pop="18">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780044194006-f44d09925fbec580.jpg?x-oss-process=image/resize,w_800" alt="Velvet Quilted Legless Floor Chair" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Velvet Quilted Legless Floor Chair<span class="zh">绒面绗缝无腿懒人沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">艾</span><span class="zh">艾新居家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqoc9n6001x11k3rk8mcosp" data-pop="5">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780044170055-97a8fce568ac9753.jpg?x-oss-process=image/resize,w_800" alt="Off-White Fabric Sectional Sofa with Contrast Stitching" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Off-White Fabric Sectional Sofa with Contrast Stitching<span class="zh">米白色明线勾勒组合布艺沙发</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">艾</span><span class="zh">艾新居家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqo2xgo001t11k3r5e3c5d9" data-pop="12">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780043697895-bd5426ac9b84d0e9.jpg?x-oss-process=image/resize,w_800" alt="Light Oak Rectangular Table with Rounded Edges" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Light Oak Rectangular Table with Rounded Edges<span class="zh">浅橡木色圆润边长方形餐桌</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">物</span><span class="zh">物质家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqo1ruc001go2u0d7sgq4w9" data-pop="19">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780043651001-bdd14219ca0cbc4e.jpg?x-oss-process=image/resize,w_800" alt="Light Oak Console Table with Fluted Details" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Light Oak Console Table with Fluted Details<span class="zh">浅橡木色竖纹格栅玄关桌</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">物</span><span class="zh">物质家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqo0omf001r11k364ztukes" data-pop="6">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780043604214-0b8c5c54553df504.jpg?x-oss-process=image/resize,w_800" alt="Deep Walnut Dining Table with Fluted Legs" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Deep Walnut Dining Table with Fluted Legs<span class="zh">深胡桃木竖纹腿长方形餐桌</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">物</span><span class="zh">物质家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqnzs4c001p11k3gxw4o1xz" data-pop="13">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780043561539-59f028923f836fce.jpg?x-oss-process=image/resize,w_800" alt="Deep Walnut Cross-Brace Rectangular Dining Table" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Deep Walnut Cross-Brace Rectangular Dining Table<span class="zh">深胡桃木交叉支架长方形餐桌</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">物</span><span class="zh">物质家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqnytwy001n11k3yu2lwfm5" data-pop="20">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780043509021-a9b3f45511b1eb08.png?x-oss-process=image/resize,w_800" alt="Deep Walnut Oval Table with Cylindrical Legs" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Deep Walnut Oval Table with Cylindrical Legs<span class="zh">深胡桃木圆柱腿椭圆餐桌</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">物</span><span class="zh">物质家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+    <a class="post reveal" href="https://www.provenir.design/post/cmpqnxmcn001l11k3pqy31qww" data-pop="7">
+      <figure class="post-fig"><img src="https://public.provenir.design/thumb/thumb_1780043456576-b1b2d963bd61abed.png?x-oss-process=image/resize,w_800" alt="Walnut Textured Solid Wood Table with U-Shaped Metal Legs" loading="lazy"></figure>
+      <div class="post-body">
+        <h3>Walnut Textured Solid Wood Table with U-Shaped Metal Legs<span class="zh">胡桃木纹理 U 型金属腿实木餐桌</span></h3>
+        <div class="post-maker"><span class="avatar zh" aria-hidden="true">物</span><span class="zh">物质家具</span><span class="mfr">Manufacturer</span></div>
+      </div>
+    </a>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="seal" aria-hidden="true">源</span>
+        <div>
+          <strong style="font-size:17px">Provenir</strong>
+          <p>Sourced from craft. Built for design.<br><span class="zh" style="font-size:12.5px;letter-spacing:.2em">源于工艺 · 成于设计</span></p>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="world-wall.html">World Wall</a>
+        <a href="https://www.provenir.design/search">Search</a>
+        <a href="https://www.provenir.design/publish">Publish</a>
+      </div>
+      <div class="foot-col">
+        <h4>Connect</h4>
+        <span>Business Inquiries</span>
+        <a href="mailto:operation@provenir.design">operation@provenir.design</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Provenir. All rights reserved</span>
+      <span><a href="https://www.provenir.design/terms">Terms of Service</a> &nbsp;·&nbsp; <a href="https://www.provenir.design/privacy">Privacy Policy</a></span>
+    </div>
+  </div>
+</footer>
+<script>document.documentElement.classList.add('js');
+
+// Scroll reveals (content visible by default without JS)
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  },{threshold:.18});
+  els.forEach(function(e,i){ e.style.transitionDelay = (Math.min(i%4,3)*70)+'ms'; io.observe(e); });
+})();
+
+// World Wall tabs: Latest = DOM order, Popular = sample engagement order
+(function(){
+  var wall = document.getElementById('wall'); if(!wall) return;
+  var posts = Array.prototype.slice.call(wall.children);
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click', function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');
+      var sorted = posts.slice();
+      if(t.dataset.sort==='popular'){
+        sorted.sort(function(a,b){ return (+b.dataset.pop||0)-(+a.dataset.pop||0); });
+      }
+      sorted.forEach(function(p){ wall.appendChild(p); });
+    });
+  });
+})();
+
+// Product gallery
+(function(){
+  var main = document.getElementById('gMain'); if(!main) return;
+  var imgs = JSON.parse(document.getElementById('gData').textContent);
+  var idx = 0, count = document.getElementById('gCount');
+  var thumbs = document.querySelectorAll('.thumb');
+  function show(i){
+    idx = (i+imgs.length)%imgs.length;
+    main.classList.add('fading');
+    setTimeout(function(){
+      main.src = imgs[idx];
+      main.onload = function(){ main.classList.remove('fading'); };
+    },180);
+    count.textContent = (idx+1)+' / '+imgs.length;
+    thumbs.forEach(function(t,j){ t.classList.toggle('active', j===idx); });
+  }
+  document.querySelector('.g-prev').addEventListener('click',function(){show(idx-1)});
+  document.querySelector('.g-next').addEventListener('click',function(){show(idx+1)});
+  thumbs.forEach(function(t,j){ t.addEventListener('click',function(){show(j)}); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft')show(idx-1);
+    if(e.key==='ArrowRight')show(idx+1);
+  });
+})();
+</script>
+</body>
+</html>
