@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>World Wall — Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#EFF1EC;color:#16291F;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased}
+.band{background:#1E3A2F;color:#EFF1EC}
+.wrap{max-width:1280px;margin:0 auto;padding:0 44px}
+header{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+.brand{font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;letter-spacing:-.02em}
+nav{display:flex;gap:26px;align-items:center} nav a{color:#EFF1EC;text-decoration:none;font-size:13.5px;font-weight:500;opacity:.85}
+nav a:hover{opacity:1}
+nav .cta{background:#C44A24;color:#fff;padding:9px 18px;border-radius:8px;opacity:1}
+.hd{padding:64px 0 72px}
+.hd h1{font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(52px,8vw,104px);line-height:.98;letter-spacing:-.03em}
+.hd em{font-style:normal;color:#C9E265}
+.hd p{margin-top:20px;font-size:16px;max-width:520px;line-height:1.6;opacity:.92}
+.tabs{display:flex;gap:10px;padding:36px 0 8px}
+.tab{padding:10px 22px;border-radius:999px;border:1.5px solid #16291F;background:none;font-size:13.5px;font-weight:600;color:#16291F;cursor:pointer;font-family:Inter}
+.tab.on{background:#16291F;color:#EFF1EC}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding:28px 0 110px}
+.card{background:#fff;border:1.5px solid #16291F;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 #16291F}
+.card figure{aspect-ratio:4/3;overflow:hidden;border-bottom:1.5px solid #16291F}
+.card img{width:100%;height:100%;object-fit:cover}
+.bd{padding:18px 20px 20px;display:flex;flex-direction:column;gap:14px;flex:1}
+.card h3{font-family:'Bricolage Grotesque';font-weight:600;font-size:19px;line-height:1.3;letter-spacing:-.01em;flex:1}
+.row{display:flex;justify-content:space-between;align-items:center}
+.name{font-size:13.5px;font-weight:600}
+.chip{font-size:11px;font-weight:600;color:#C44A24;border:1.5px solid #C44A24;border-radius:999px;padding:4px 11px}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}.wrap{padding:0 22px}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<div class="band"><div class="wrap">
+<header><div class="brand">Provenir</div><nav><a href="#">World Wall</a><a href="#">Showrooms</a><a href="#">Journal</a><a class="cta" href="#">Join Provenir</a></nav></header>
+<div class="hd"><h1>The World Wall.<br><em>Made by the makers.</em></h1><p>Work posted directly by verified manufacturers — browse, trace the workshop behind each piece, and connect without the middle layer.</p></div>
+</div></div>
+<div class="wrap">
+<div class="tabs"><button class="tab on">Latest</button><button class="tab">Popular</button></div>
+<div class="grid"><a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780631460418-ebd52fdb1aa9a260.png?x-oss-process=image/resize,w_900" alt="A luxurious sofa that blends the past and present" loading="lazy"></figure>
+      <div class="bd">
+        <h3>A luxurious sofa that blends the past and present</h3>
+        <div class="row"><span class="name">Modeng Feili</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a>
+<a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780545402410-0541901cd51f0dd7.png?x-oss-process=image/resize,w_900" alt="Italian Tufted Genuine Leather Bed" loading="lazy"></figure>
+      <div class="bd">
+        <h3>Italian Tufted Genuine Leather Bed</h3>
+        <div class="row"><span class="name">Gusi Youpin</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a>
+<a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780542613496-4ac6fb65cdc7c5b7.png?x-oss-process=image/resize,w_900" alt="Italian-style Block Padded Genuine Leather Bed" loading="lazy"></figure>
+      <div class="bd">
+        <h3>Italian-style Block Padded Genuine Leather Bed</h3>
+        <div class="row"><span class="name">Gusi Youpin</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a>
+<a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780542506801-90cb9ae6ec95fe3b.png?x-oss-process=image/resize,w_900" alt="Minimalist Slim Leg Stone Dining Table Set" loading="lazy"></figure>
+      <div class="bd">
+        <h3>Minimalist Slim Leg Stone Dining Table Set</h3>
+        <div class="row"><span class="name">Gusi Youpin</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a>
+<a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780046301325-5d3e1ce3c21f322f.png?x-oss-process=image/resize,w_900" alt="Hidden Frame・20 Hinge Series Cabinet Glass Door" loading="lazy"></figure>
+      <div class="bd">
+        <h3>Hidden Frame・20 Hinge Series Cabinet Glass Door</h3>
+        <div class="row"><span class="name">Qipaike</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a>
+<a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780045170510-8ac53606b123e843.png?x-oss-process=image/resize,w_900" alt="Light & Order・Italian Built-In Bookcase" loading="lazy"></figure>
+      <div class="bd">
+        <h3>Light & Order・Italian Built-In Bookcase</h3>
+        <div class="row"><span class="name">Qipaike</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a>
+<a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780044483511-774512033200e9e1.jpg?x-oss-process=image/resize,w_900" alt="Matte Black Quilted Grid Leather Three-Seater Sofa" loading="lazy"></figure>
+      <div class="bd">
+        <h3>Matte Black Quilted Grid Leather Three-Seater Sofa</h3>
+        <div class="row"><span class="name">Aixinju Furniture</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a>
+<a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780044432810-0cf65e04e2031312.jpg?x-oss-process=image/resize,w_900" alt="Mustard-Yellow Tufted Suede Three-Seater Sofa" loading="lazy"></figure>
+      <div class="bd">
+        <h3>Mustard-Yellow Tufted Suede Three-Seater Sofa</h3>
+        <div class="row"><span class="name">Aixinju Furniture</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a>
+<a class="card" href="#">
+      <figure><img src="https://public.provenir.design/thumb/thumb_1780044387507-e651dec7daa26103.jpg?x-oss-process=image/resize,w_900" alt="Matte Black Modular Leather Three-Seater Sofa" loading="lazy"></figure>
+      <div class="bd">
+        <h3>Matte Black Modular Leather Three-Seater Sofa</h3>
+        <div class="row"><span class="name">Aixinju Furniture</span><span class="chip">Manufacturer</span></div>
+      </div>
+    </a></div>
+</div></body></html>
